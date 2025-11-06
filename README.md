@@ -1,3 +1,5 @@
 # ioannistassioulas.github.io
 
 Hello World!
+
+This is my second website using Github Pages. Currently not sure which one I will use in the end but ultimately it will depend on whichever language/service I think fits my needs best. Check out my github projects for a quick glance at my interests!

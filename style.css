@@ -1,0 +1,27 @@
+body {
+    background-image: url("images/hero_image_-_online__M_-52736575e81fe41826bfdd4d3958b58a.jpg");
+    
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+.center {
+    background-color: #16e1fc;
+    text-align: center;
+    width: 75%;
+    margin: auto;
+}
+
+.row {
+    background-color: #16e1fc;
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+}
+
+.column {
+    background-color: #16e1fc;
+    flex: 50%;
+    padding: 10px;
+}

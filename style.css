@@ -29,3 +29,17 @@ body {
 hr.solid {
   border-top: 3px solid #bbb;
 }
+
+.w3-sidebar {
+    width:8%;
+    background-color: #16fc21;
+}
+
+.w3-bar-block{ 
+    width:8%; 
+    background-color: #16fc21;
+}
+
+.w3-bar-button{
+    background-color: #1efc16;
+}

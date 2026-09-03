@@ -21,13 +21,6 @@ for file in "$VAULT_DIR"/*.md; do
   post_date=${post_date:-$(date +%Y-%m-%d)}
   post_date=$(echo "$post_date" | tr -d '[:space:]')  # strip stray whitespace
 
-  # Skip drafts if marked
-  is_draft=$(awk -F': ' '/^draft:/ {print $2; exit}' "$file")
-  if [ "$is_draft" = "true" ]; then
-    echo "Skipping draft: $file"
-    continue
-  fi
-
   # --- Slugify title for the filename ---
   slug=$(echo "$title" | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9]+/-/g; s/^-+|-+$//g')
 

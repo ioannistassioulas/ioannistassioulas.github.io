@@ -31,7 +31,7 @@ jobs:
 
       - name: Convert vault notes to Jekyll posts
         run: |
-          chmod +x /scripts/vault-to-posts.sh
+          chmod +x scripts/vault-to-posts.sh
           ./scripts/vault-to-posts.sh
 
       - name: Commit generated posts

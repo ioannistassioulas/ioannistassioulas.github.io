@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-VAULT_DIR="docs/vault"
+VAULT_DIR="vault"
 POSTS_DIR="docs/_posts"
 ASSETS_DIR="docs/assets/images"
 
@@ -42,14 +42,15 @@ for file in "$VAULT_DIR"/*.md; do
   sed -i -E 's/\[\[([^]]+)\]\]/\1/g' "$out_file"
 
   # ![[image.png]] -> markdown image, copy image file if it exists
-  grep -oE '!\[\[[^]]+\]\]' "$out_file" 2>/dev/null | while read -r embed; do
-    img_name=$(echo "$embed" | sed -E 's/!\[\[([^]]+)\]\]/\1/')
-    if [ -f "$VAULT_DIR/$img_name" ]; then
-      cp "$VAULT_DIR/$img_name" "$ASSETS_DIR/$img_name"
-    fi
-    escaped_embed=$(printf '%s\n' "$embed" | sed 's/[&/\]/\\&/g')
-    sed -i "s|${escaped_embed}|![${img_name}](/assets/images/${img_name})|g" "$out_file"
-  done
-
+  if grep -qE '!\[\[[^]]+\]\]' "$out_file" 2>/dev/null; then
+    grep -oE '!\[\[[^]]+\]\]' "$out_file" | while read -r embed; do
+      img_name=$(echo "$embed" | sed -E 's/!\[\[([^]]+)\]\]/\1/')
+      if [ -f "$VAULT_DIR/$img_name" ]; then
+        cp "$VAULT_DIR/$img_name" "$ASSETS_DIR/$img_name"
+      fi
+      escaped_embed=$(printf '%s\n' "$embed" | sed 's/[&/\]/\\&/g')
+      sed -i "s|${escaped_embed}|![${img_name}](/assets/images/${img_name})|g" "$out_file"
+    done
+  fi
   echo "Generated $out_file"
 done

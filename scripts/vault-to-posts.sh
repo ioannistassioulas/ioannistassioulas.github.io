@@ -37,9 +37,9 @@ for file in "$VAULT_DIR"/*.md; do
   cp "$file" "$out_file"
 
   # [[Page|Alias]] -> Alias
-  sed -i -E 's/\[\[[^]|]+\|([^]]+)\]\]/\1/g' "$out_file"
+  sed -i '' -E 's/\[\[[^]|]+\|([^]]+)\]\]/\1/g' "$out_file"
   # [[Page]] -> Page
-  sed -i -E 's/\[\[([^]]+)\]\]/\1/g' "$out_file"
+  sed -i '' -E 's/\[\[([^]]+)\]\]/\1/g' "$out_file"
 
   # ![[image.png]] -> markdown image, copy image file if it exists
   if grep -qE '!\[\[[^]]+\]\]' "$out_file" 2>/dev/null; then

@@ -14,3 +14,5 @@ Edit: Can we get an image working? Time to test!
 Well . . . it seems like the image file didnt work. Back to fixing it up in post . . .
 
 So the solution in the end is to install a Commander plugin to Obsidian, which lets me run shell scripts from here.
+
+Edit 2: Ok, so the last last solution is to run a javascript file that lets me run a shell command that allows for git commit empty. Final test . . .
